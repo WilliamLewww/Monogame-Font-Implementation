@@ -82,23 +82,21 @@ namespace FontSeparation
             foreach (int[] coordinate in fontSeparation.coordinateList)
                 characterList.Add(new Microsoft.Xna.Framework.Rectangle(coordinate[0], coordinate[1], coordinate[2], coordinate[3]));
 
-            newCharacterList = DrawString("abcdefghijklmnopqrstuvwxyz");
+            newCharacterList = DrawString("1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz");
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             int a = 0, b = 0;
 
-            for (int x = 0; x < newCharacterList.Count; x++)
-                if (newCharacterList[x].Height > b)
-                    b = newCharacterList[x].Height;
+            for (int x = 0; x < characterList.Count; x++)
+                if (x != 42 && x != 45 && x != 51 && x != 52 && x != 60)
+                    if (characterList[x].Height > b)
+                        b = characterList[x].Height;
 
             for (int x = 0; x < newCharacterList.Count; x++)
             {
-                if (newCharacterList[x] == characterList[GetIndexFromChar('g')] || newCharacterList[x] == characterList[GetIndexFromChar('j')] || newCharacterList[x] == characterList[GetIndexFromChar('p')] || newCharacterList[x] == characterList[GetIndexFromChar('q')] || newCharacterList[x] == characterList[GetIndexFromChar('y')])
-                    spriteBatch.Draw(texture, new Vector2(a + (OFFSET * x), newCharacterList[x].Height / 2), newCharacterList[x], new Microsoft.Xna.Framework.Color(0, 0, 0, 255));
-                else
-                    spriteBatch.Draw(texture, new Vector2(a + (OFFSET * x), b - newCharacterList[x].Height), newCharacterList[x], new Microsoft.Xna.Framework.Color(0, 0, 0, 255));
+                spriteBatch.Draw(texture, new Vector2(a + (OFFSET * x), b - newCharacterList[x].Height), newCharacterList[x], new Microsoft.Xna.Framework.Color(0, 0, 0, 255));
                 a += newCharacterList[x].Width;
             }
         }
