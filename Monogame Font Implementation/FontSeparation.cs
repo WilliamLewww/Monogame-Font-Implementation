@@ -61,7 +61,7 @@ namespace FontSeparation
         Texture2D texture;
         FontSeparation fontSeparation;
 
-        int OFFSET = 0;
+        int OFFSET = 10;
 
         public static List<Microsoft.Xna.Framework.Rectangle> characterList = new List<Microsoft.Xna.Framework.Rectangle>();
         List<Microsoft.Xna.Framework.Rectangle> newCharacterList = new List<Microsoft.Xna.Framework.Rectangle>();
