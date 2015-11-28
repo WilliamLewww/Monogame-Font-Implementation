@@ -61,7 +61,7 @@ namespace FontSeparation
         Texture2D texture;
         FontSeparation fontSeparation;
 
-        int OFFSET = 10;
+        int OFFSET = 5;
 
         public static List<Microsoft.Xna.Framework.Rectangle> characterList = new List<Microsoft.Xna.Framework.Rectangle>();
         List<Microsoft.Xna.Framework.Rectangle> newCharacterList = new List<Microsoft.Xna.Framework.Rectangle>();
@@ -82,16 +82,23 @@ namespace FontSeparation
             foreach (int[] coordinate in fontSeparation.coordinateList)
                 characterList.Add(new Microsoft.Xna.Framework.Rectangle(coordinate[0], coordinate[1], coordinate[2], coordinate[3]));
 
-            newCharacterList = DrawString("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+            newCharacterList = DrawString("abcdefghijklmnopqrstuvwxyz");
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            int a = 0;
+            int a = 0, b = 0;
+
+            for (int x = 0; x < newCharacterList.Count; x++)
+                if (newCharacterList[x].Height > b)
+                    b = newCharacterList[x].Height;
 
             for (int x = 0; x < newCharacterList.Count; x++)
             {
-                spriteBatch.Draw(texture, new Vector2(a + (OFFSET * x), 0), newCharacterList[x], new Microsoft.Xna.Framework.Color(0, 0, 0, 255));
+                if (newCharacterList[x] == characterList[GetIndexFromChar('g')] || newCharacterList[x] == characterList[GetIndexFromChar('j')] || newCharacterList[x] == characterList[GetIndexFromChar('p')] || newCharacterList[x] == characterList[GetIndexFromChar('q')] || newCharacterList[x] == characterList[GetIndexFromChar('y')])
+                    spriteBatch.Draw(texture, new Vector2(a + (OFFSET * x), newCharacterList[x].Height / 2), newCharacterList[x], new Microsoft.Xna.Framework.Color(0, 0, 0, 255));
+                else
+                    spriteBatch.Draw(texture, new Vector2(a + (OFFSET * x), b - newCharacterList[x].Height), newCharacterList[x], new Microsoft.Xna.Framework.Color(0, 0, 0, 255));
                 a += newCharacterList[x].Width;
             }
         }
