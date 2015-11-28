@@ -61,7 +61,10 @@ namespace FontSeparation
         Texture2D texture;
         FontSeparation fontSeparation;
 
+        int OFFSET = 20;
+
         public static List<Microsoft.Xna.Framework.Rectangle> characterList = new List<Microsoft.Xna.Framework.Rectangle>();
+        List<Microsoft.Xna.Framework.Rectangle> newCharacterList = new List<Microsoft.Xna.Framework.Rectangle>();
 
         private static ContentManager content;
         public static ContentManager Content
@@ -79,11 +82,88 @@ namespace FontSeparation
             foreach (int[] coordinate in fontSeparation.coordinateList)
                 characterList.Add(new Microsoft.Xna.Framework.Rectangle(coordinate[0], coordinate[1], coordinate[2], coordinate[3]));
 
+            newCharacterList = DrawString("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, new Vector2(0, 0), characterList[0], new Microsoft.Xna.Framework.Color(0, 0, 0, 255));
+            for (int x = 0; x < newCharacterList.Count; x++)
+            {
+                spriteBatch.Draw(texture, new Vector2(OFFSET * x, 0), newCharacterList[x], new Microsoft.Xna.Framework.Color(0, 0, 0, 255));
+            }
+        }
+
+        public List<Microsoft.Xna.Framework.Rectangle> DrawString(string text)
+        {
+            List<Microsoft.Xna.Framework.Rectangle> newCharacterList = new List<Microsoft.Xna.Framework.Rectangle>();
+
+            foreach (char c in text)
+            {
+                newCharacterList.Add(characterList[GetIndexFromChar(c)]);
+            }
+
+            return newCharacterList;
+        }
+
+        public int GetIndexFromChar(char c)
+        {
+            switch (c)
+            {
+                case 'A':
+                    return 0;
+                case 'B':
+                    return 1;
+                case 'C':
+                    return 2;
+                case 'D':
+                    return 3;
+                case 'E':
+                    return 4;
+                case 'F':
+                    return 5;
+                case 'G':
+                    return 6;
+                case 'H':
+                    return 7;
+                case 'I':
+                    return 8;
+                case 'J':
+                    return 9;
+                case 'K':
+                    return 10;
+                case 'L':
+                    return 11;
+                case 'M':
+                    return 12;
+                case 'N':
+                    return 13;
+                case 'O':
+                    return 14;
+                case 'P':
+                    return 15;
+                case 'Q':
+                    return 16;
+                case 'R':
+                    return 17;
+                case 'S':
+                    return 18;
+                case 'T':
+                    return 19;
+                case 'U':
+                    return 20;
+                case 'V':
+                    return 21;
+                case 'W':
+                    return 22;
+                case 'X':
+                    return 23;
+                case 'Y':
+                    return 24;
+                case 'Z':
+                    return 25;
+            }
+
+            return -1;
         }
     }
 }
