@@ -61,8 +61,6 @@ namespace FontSeparation
         Texture2D texture;
         FontSeparation fontSeparation;
 
-        enum Letters : int { A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z };
-
         public static List<Microsoft.Xna.Framework.Rectangle> characterList = new List<Microsoft.Xna.Framework.Rectangle>();
 
         private static ContentManager content;
@@ -85,7 +83,7 @@ namespace FontSeparation
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, new Vector2(0, 0), characterList[(int)Letters.A], new Microsoft.Xna.Framework.Color(0, 0, 0, 255));
+            spriteBatch.Draw(texture, new Vector2(0, 0), characterList[0], new Microsoft.Xna.Framework.Color(0, 0, 0, 255));
         }
     }
 }
