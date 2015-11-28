@@ -112,58 +112,130 @@ namespace FontSeparation
         {
             switch (c)
             {
-                case 'A':
+                case '0':
                     return 0;
-                case 'B':
+                case '1':
                     return 1;
-                case 'C':
+                case '2':
                     return 2;
-                case 'D':
+                case '3':
                     return 3;
-                case 'E':
+                case '4':
                     return 4;
-                case 'F':
+                case '5':
                     return 5;
-                case 'G':
+                case '6':
                     return 6;
-                case 'H':
+                case '7':
                     return 7;
-                case 'I':
+                case '8':
                     return 8;
-                case 'J':
+                case '9':
                     return 9;
-                case 'K':
+                case 'A':
                     return 10;
-                case 'L':
+                case 'B':
                     return 11;
-                case 'M':
+                case 'C':
                     return 12;
-                case 'N':
+                case 'D':
                     return 13;
-                case 'O':
+                case 'E':
                     return 14;
-                case 'P':
+                case 'F':
                     return 15;
-                case 'Q':
+                case 'G':
                     return 16;
-                case 'R':
+                case 'H':
                     return 17;
-                case 'S':
+                case 'I':
                     return 18;
-                case 'T':
+                case 'J':
                     return 19;
-                case 'U':
+                case 'K':
                     return 20;
-                case 'V':
+                case 'L':
                     return 21;
-                case 'W':
+                case 'M':
                     return 22;
-                case 'X':
+                case 'N':
                     return 23;
-                case 'Y':
+                case 'O':
                     return 24;
-                case 'Z':
+                case 'P':
                     return 25;
+                case 'Q':
+                    return 26;
+                case 'R':
+                    return 27;
+                case 'S':
+                    return 28;
+                case 'T':
+                    return 29;
+                case 'U':
+                    return 30;
+                case 'V':
+                    return 31;
+                case 'W':
+                    return 32;
+                case 'X':
+                    return 33;
+                case 'Y':
+                    return 34;
+                case 'Z':
+                    return 35;
+                case 'a':
+                    return 36;
+                case 'b':
+                    return 37;
+                case 'c':
+                    return 38;
+                case 'd':
+                    return 39;
+                case 'e':
+                    return 40;
+                case 'f':
+                    return 41;
+                case 'g':
+                    return 42;
+                case 'h':
+                    return 43;
+                case 'i':
+                    return 44;
+                case 'j':
+                    return 45;
+                case 'k':
+                    return 46;
+                case 'l':
+                    return 47;
+                case 'm':
+                    return 48;
+                case 'n':
+                    return 49;
+                case 'o':
+                    return 50;
+                case 'p':
+                    return 51;
+                case 'q':
+                    return 52;
+                case 'r':
+                    return 53;
+                case 's':
+                    return 54;
+                case 't':
+                    return 55;
+                case 'u':
+                    return 56;
+                case 'v':
+                    return 57;
+                case 'w':
+                    return 58;
+                case 'x':
+                    return 59;
+                case 'y':
+                    return 60;
+                case 'z':
+                    return 61;
             }
 
             return -1;
