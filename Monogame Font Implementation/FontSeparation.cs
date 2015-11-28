@@ -61,7 +61,7 @@ namespace FontSeparation
         Texture2D texture;
         FontSeparation fontSeparation;
 
-        int OFFSET = 20;
+        int OFFSET = 10;
 
         public static List<Microsoft.Xna.Framework.Rectangle> characterList = new List<Microsoft.Xna.Framework.Rectangle>();
         List<Microsoft.Xna.Framework.Rectangle> newCharacterList = new List<Microsoft.Xna.Framework.Rectangle>();
@@ -87,9 +87,12 @@ namespace FontSeparation
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            int a = 0;
+
             for (int x = 0; x < newCharacterList.Count; x++)
             {
-                spriteBatch.Draw(texture, new Vector2(OFFSET * x, 0), newCharacterList[x], new Microsoft.Xna.Framework.Color(0, 0, 0, 255));
+                spriteBatch.Draw(texture, new Vector2(a + (OFFSET * x), 0), newCharacterList[x], new Microsoft.Xna.Framework.Color(0, 0, 0, 255));
+                a += newCharacterList[x].Width;
             }
         }
 
